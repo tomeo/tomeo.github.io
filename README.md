@@ -1,3 +1,40 @@
+# Setup
+
+###Install ruby
+
+First check if ruby is installed:
+```
+ruby --version
+```
+This should return a version. If ruby is not installed, download latest ruby.
+
+###Install bundler
+```
+gem install bundler
+```
+
+On Windows machines this is prone to fail with an ssl cert error.  In that case edit/create ~/.gemrc to look like this and try again:
+```
+---
+:backtrace: false
+:bulk_threshold: 1000
+:sources: ["http://rubygems.org"]
+:update_sources: true
+:verbose: true
+```
+
+###Run bundle install
+Go to the project root folder and run
+```
+bundle install
+```
+
+# Debug
+From project root folder run
+```
+bundle exec jekyll serve
+```
+
 # Hydeout
 
 Hydeout updates the original [Hyde](https://github.com/poole/hyde)
@@ -166,3 +203,4 @@ You can see the full set of partials you can replace in the
 
 There's also a bunch of minor tweaks and adjustments throughout the
 theme. Hope this works for you!
+
