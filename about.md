@@ -4,4 +4,4 @@ title: About
 sidebar_link: true
 ---
 
-Half man, half centaur.
+Half man, half centaur!
