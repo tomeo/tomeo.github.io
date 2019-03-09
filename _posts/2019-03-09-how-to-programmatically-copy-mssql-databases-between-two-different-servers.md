@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to programatically copy MSSQL-databases between two different servers
+title: How to programmatically copy MSSQL-databases between two different servers
 category: Devops
 excerpt_separator:  <!--more-->
 tags:
@@ -36,20 +36,18 @@ Start by creating the directory `c:\dbbackup` on both the source and target mach
 2. `run.sh`
 
 You want `Dockerfile` to look like this:
-
-```
+```docker
 FROM mcr.microsoft.com/mssql-tools:v1
 
-RUN apt-get -y update --fix-missing 
-RUN apt-get -y install curl
+RUN apt-get -y update --fix-missing && \
+    apt-get -y install curl
 
 ADD run.sh ./run.sh
 CMD ["/bin/bash", "./run.sh"]
 ```
 
 You want `run.sh` to look like this:
-
-```
+```bash
 #!/usr/bin/env bash
 
 # Exit on first error
@@ -92,8 +90,7 @@ curl \
 ```
 
 Run it using
-
-```
+```bash
 docker build -t mssqlcp . && docker run -it --rm \
   -e "DOMAIN_USERNAME=DOMAINNAME\Username" \
   -e "DOMAIN_PASSWORD=Password" \
@@ -106,4 +103,12 @@ docker build -t mssqlcp . && docker run -it --rm \
   -e "TO_SQL_PASSWORD=testdbpassword" \
   -e "TO_DATABASE_NAME=todbname" \
    mssqlcp
+```
+
+### Compress backups
+
+You may want to tell SQL-server to compress your backup files. This can be done by running the following on the source SQL-server:
+```sql
+EXEC sp_configure 'backup compression default', 1
+RECONFIGURE WITH OVERRIDE
 ```
