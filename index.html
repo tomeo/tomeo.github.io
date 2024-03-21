@@ -1,4 +1,109 @@
----
-layout: index
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Name Generator</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <style>
+        body {
+            background-color: #ff5776;
+        }
+        html, body {
+            color: #fff;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        const s = [
+            'Chief of',
+            'Head of',
+            'Fullstack',
+            'Lead',
+            'Deputy',
+            'Corporate',
+            '',
+        ];
+
+        const prefix = [
+            'GPAM',
+            'ROI',
+            'Forecast',
+            'Town Hall',
+            'Grid',
+            'Thirsty Thursday',
+            'Capital Market',
+            'Bi-Weekly',
+            'Chinese New Year',
+            'Google Algorithm',
+            'Migration',
+            'Make China Shine Again',
+            '10% of Nordic e-commerce',
+            'Supply',
+        ];
+
+        const business = [
+            'Issue',
+            'Budget',
+            'Challenge',
+            'Strategy',
+            'Operational Efficiency',
+            'Transparency',
+            'Growth',
+            'Process',
+            'Innovation',
+            'Analytics',
+            'Business Intelligence',
+            'Compliance',
+            'Grey Zone',
+        ];
+
+        const suffix = [
+            'Champions',
+            'Smashers',
+            'With Fahl',
+            'Task Force',
+            'Meeting Survivors',
+            'Workshopers',
+            'Business Developers',
+            'Mitigators',
+            'Kudos Givers',
+            'Performance Marketers',
+            'Officers',
+            'Managers',
+            'Performance Managers',
+            'Specialists',
+            'Coordinators',
+        ];
+
+        function r(a) {
+            return a[Math.floor(Math.random() * a.length)];
+        }
+
+        function getName() {
+            return `${r(s)} ${r(prefix)} ${r(business)} ${r(suffix)}`.trim();
+        }
+
+        function setName() {
+            document.getElementById('team-name').innerText = getName();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setName();
+            setInterval(setName, 4000);
+        });
+    </script>
+</head>
+<body>
+
+<h1 id="team-name"></h1>
+
+</body>
+</html>
