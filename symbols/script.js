@@ -37,7 +37,7 @@ function maybeUppercase(value) {
 }
 
 function changeSymbol(symbol) {
-    document.getElementById('symbol').innerText = maybeUppercase(symbol.value);
+    document.getElementById('symbol').value = maybeUppercase(symbol.value);
 }
 
 function countingPhrase(value, answer) {
@@ -83,10 +83,14 @@ function correct(symbol, answer) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('symbol').addEventListener('keypress', function(event) {
+        event.preventDefault();
+    });
+    
     preloadVoices().then(() => {
         reset(getRandom(symbols));
         document.addEventListener('keydown', function(event) {
-            let currentValue = document.getElementById('symbol').innerText.toLowerCase()
+            let currentValue = document.getElementById('symbol').value.toLowerCase()
             let currentSymbol = symbols.find(s => s.value.toLowerCase() == currentValue);
             if (event.key === currentSymbol.value.toLowerCase()) {
                 let answer = getRandom(currentSymbol.answers);
