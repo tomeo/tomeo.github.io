@@ -79,6 +79,7 @@ function symbol_type(value) {
 
 function correct(symbol, answer) {
     document.getElementById('symbol').classList.add("hidden");
+    document.getElementById('symbol').value = "";
     changeText(symbol, answer);
     changeImage(answer);
     speak(`Yes! That is the ${symbol_type(symbol.value)} ${symbol.value}. ${phrase(symbol, answer)}`, function () {
