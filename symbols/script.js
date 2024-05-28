@@ -14,12 +14,9 @@ function preloadVoices() {
 
 function speak(message, callback) {
     const voices = speechSynthesis.getVoices();
-    const selectedVoice = voices.find(voice => 
-        voice.name === 'Microsoft Hazel Desktop - English (United Kingdom)'
-        || voice.name === 'Google UK English Female'
-        || voice.name === 'Kate - English (United Kingdom)'
-        || voice.name === 'Serena - English (United Kingdom)'
-    );
+    const enVoices = voices.filter(voice => voice.lang === 'en-GB' || voice.lang === 'en-US');
+    let selectedVoice = enVoices[Math.floor(Math.random() * enVoices.length)];
+
     const utterance = new SpeechSynthesisUtterance(message);
     utterance.onend = callback;
     utterance.voice = selectedVoice;
