@@ -209,8 +209,4 @@ const symbols = [
             "Flowers",
         ],
     },
-    // {
-    //     "value": "10",
-    //     "word": "Balloons",
-    // },
 ];
