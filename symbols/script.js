@@ -29,8 +29,15 @@ function randomBool() {
     return Math.random() < 0.5;
 }
 
+function maybeUppercase(value) {
+    if (value === "i") return "i";
+    if (value === "l") return "L";
+
+    return randomBool() ? value : value.toUpperCase();
+}
+
 function changeSymbol(symbol) {
-    document.getElementById('symbol').innerText = symbol.value;
+    document.getElementById('symbol').innerText = maybeUppercase(symbol.value);
 }
 
 function countingPhrase(value, answer) {
