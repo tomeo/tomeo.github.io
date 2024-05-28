@@ -71,6 +71,7 @@ function changeImage(answer) {
 
 function reset(symbol) {
     changeSymbol(symbol);
+    document.getElementById('symbol').classList.remove("hidden");
     document.getElementById('img').classList.add("hidden");
     document.getElementById('text').classList.add("hidden");
 }
@@ -80,6 +81,7 @@ function symbol_type(value) {
 }
 
 function correct(symbol, answer) {
+    document.getElementById('symbol').classList.add("hidden");
     changeText(symbol, answer);
     changeImage(answer);
     speak(`Yes! That is the ${symbol_type(symbol.value)} ${symbol.value}. ${phrase(symbol, answer)}`, function () {
