@@ -14,6 +14,7 @@ const symbols = [
             "Banana",
             "Boots",
             "Balloons",
+            "Babblarna",
         ],
     },
     {
