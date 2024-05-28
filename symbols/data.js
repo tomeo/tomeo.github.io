@@ -12,6 +12,8 @@ const symbols = [
         "answers": [
             "Butterfly",
             "Banana",
+            "Boots",
+            "Balloons",
         ],
     },
     {
@@ -20,6 +22,7 @@ const symbols = [
             "Car",
             "Cinema",
             "Comet",
+            "Candles",
         ],
     },
     {
@@ -27,6 +30,9 @@ const symbols = [
         "answers": [
             "Daddy",
             "Daddy Pig",
+            "Dinosaur",
+            "Dog",
+            "Ducks",
         ],
     },
     {
@@ -45,6 +51,7 @@ const symbols = [
             "Family",
             "Fredric",
             "Frank",
+            "Flowers",
         ],
     },
     {
@@ -60,6 +67,8 @@ const symbols = [
         "answers": [
             "Hug",
             "Happy",
+            "Harry",
+            "Holding hands",
         ],
     },
     {
@@ -104,6 +113,7 @@ const symbols = [
         "value": "n",
         "answers": [
             "Nanna",
+            "Nelson",
         ],
     },
     {
@@ -135,6 +145,7 @@ const symbols = [
         "answers": [
             "Tim",
             "Tesla",
+            "Toys",
         ],
     },
     {
