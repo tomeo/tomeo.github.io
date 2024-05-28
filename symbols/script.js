@@ -15,7 +15,7 @@ function preloadVoices() {
 function speak(message, callback) {
     const voices = speechSynthesis.getVoices();
     const enVoices = voices.filter(voice => voice.lang === 'en-GB' || voice.lang === 'en-US');
-    let selectedVoice = enVoices[Math.floor(Math.random() * enVoices.length)];
+    let selectedVoice = getRandom(enVoices);
 
     const utterance = new SpeechSynthesisUtterance(message);
     utterance.onend = callback;
