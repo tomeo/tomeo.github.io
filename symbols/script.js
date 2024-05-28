@@ -53,7 +53,7 @@ function changeText(symbol, answer) {
 }
 
 function changeImage(answer) {
-    document.getElementById('img').src = `${answer.toLowerCase()}.jpg`;
+    document.getElementById('img').src = `img/${answer.toLowerCase()}.jpg`;
     document.getElementById('img').classList.remove("hidden");
 }
 
