@@ -63,10 +63,14 @@ function reset(symbol) {
     document.getElementById('text').classList.add("hidden");
 }
 
+function symbol_type(value) {
+    return isNaN(value) ? "letter" : "number";
+}
+
 function correct(symbol, answer) {
     changeText(symbol, answer);
     changeImage(answer);
-    speak(`Yes! That is ${symbol.value}. ${phrase(symbol, answer)}`, function () {
+    speak(`Yes! That is the ${symbol_type(symbol.value)} ${symbol.value}. ${phrase(symbol, answer)}`, function () {
         reset(getRandom(symbols));
     });
 }
