@@ -77,17 +77,21 @@ function symbol_type(value) {
     return isNaN(value) ? "letter" : "number";
 }
 
-function correct(symbol, answer) {
+function correct(symbol, answer, fireworks) {
+    fireworks.start();
     document.getElementById('symbol').classList.add("hidden");
     document.getElementById('symbol').value = "";
     changeText(symbol, answer);
     changeImage(answer);
     speak(`Yes! That is the ${symbol_type(symbol.value)} ${symbol.value}. ${phrase(symbol, answer)}`, function () {
         reset(getRandom(symbols));
+        fireworks.stop();
     });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    const fireworks = new Fireworks.default(document.querySelector("#main"));
+
     document.getElementById('symbol').addEventListener('keypress', function(event) {
         event.preventDefault();
     });
@@ -99,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let currentSymbol = symbols.find(s => s.value.toLowerCase() == currentValue);
             if (event.key === currentSymbol.value.toLowerCase()) {
                 let answer = getRandom(currentSymbol.answers);
-                correct(currentSymbol, answer);
+                correct(currentSymbol, answer, fireworks);
             }
         });
       });
